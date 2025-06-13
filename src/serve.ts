@@ -2,8 +2,11 @@ import express, {Request, Response } from "express"
 
 const app = express()
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello from server on TypeScript!')
+app.get('/ping', (req: Request, res: Response) => {
+    res.json(
+        {
+            ping: 'OK'
+        })
 })
 
 app.listen(3000, () => {
