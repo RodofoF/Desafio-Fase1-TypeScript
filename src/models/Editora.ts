@@ -17,5 +17,10 @@ Editora.hasMany(Livro, {
     foreignKey: 'editoraId',
     as: 'livros'
 });
+// Conectar o banco livro a editora
+Livro.belongsTo(Editora, {
+    foreignKey: 'editoraId',
+    as: 'editora'
+});
 
 export default Editora;

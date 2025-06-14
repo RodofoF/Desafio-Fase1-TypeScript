@@ -28,11 +28,7 @@ const Livro = sequelize.define('Livro', {
     timestamps: false
 });
 
-// Conectar o banco livro a editora
-Livro.belongsTo(Editora, {
-    foreignKey: 'editoraId',
-    as: 'editora'
-});
+
 
 
 export default Livro;

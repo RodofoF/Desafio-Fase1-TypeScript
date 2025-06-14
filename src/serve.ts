@@ -1,6 +1,7 @@
 import express, {Request, Response } from "express"
 import sequelize from "./conn/db"
 import cors from "cors"
+import livrosRoutes from './routes/livros'
 import Livro from './models/Livro'
 import Editora from './models/Editora'
 
@@ -14,6 +15,9 @@ app.get('/ping', (req: Request, res: Response) => {
             ping: 'OK'
         })
 })
+
+app.use('/livros', livrosRoutes)
+
 sequelize.sync().then(() => {
     console.log('DB has been started!');
     app.listen(3000, () => {
