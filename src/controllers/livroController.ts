@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { ILivroInput } from "../interfaces/ILivroInput";
 import Livro from "../models/Livro";
 import Editora from "../models/Editora";
 
@@ -16,7 +17,7 @@ async function getAllBooks(req:Request, res: Response) {
 
 async function postBook(req: Request, res: Response){
     try {
-        const {titulo, autor, ano, editoraId} = req.body;
+        const {titulo, autor, ano, editoraId}: ILivroInput = req.body;
         const editora = await Editora.findByPk(editoraId)
             if(!editora) {
                 return res.status(400).json(({ error: "Editora não encontrada"}))
@@ -43,12 +44,13 @@ async function postBook(req: Request, res: Response){
     }
     async function updateBookById(req: Request, res: Response){
         try {
+            const { titulo, autor, ano, editoraId}: Partial<ILivroInput> = req.body
             const livro = await Livro.findByPk(req.params.id)
             if(!livro){
                 return res.status(404).json({message: "Book not found."})
             }
-            await livro.update(req.body)
-            res.status(200).json(req.body)
+            await livro.update({titulo, autor, ano, editoraId})
+            res.status(200).json(livro)
         } catch (error) {
              console.error('There were a error when you tryed update this book', error)
             res.status(500).json({message: "Internal server error"})
