@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import Livro from "../models/Livro";
 import Editora from "../models/Editora";
 
-export async function listarLivros(req:Request, res: Response) {
+async function listarLivros(req:Request, res: Response) {
     try {
         const livros = await Livro.findAll({
             include:[{model: Editora, as: 'editora'}]
@@ -14,7 +14,7 @@ export async function listarLivros(req:Request, res: Response) {
     }
 }
 
-export async function criarLivro(req: Request, res: Response){
+async function criarLivro(req: Request, res: Response){
     try {
         const {titulo, autor, ano, editoraId} = req.body;
         const editora = await Editora.findByPk(editoraId)
@@ -27,4 +27,8 @@ export async function criarLivro(req: Request, res: Response){
         console.error('Error ao listar livros', error)
         res.status(500).json({error: 'Erro ao listar livros'})
     }
+}
+export default {
+    listarLivros,
+    criarLivro
 }

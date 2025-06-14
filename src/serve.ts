@@ -16,7 +16,7 @@ app.get('/ping', (req: Request, res: Response) => {
         })
 })
 
-app.use('/livros', livrosRoutes)
+app.use('/api/livros', livrosRoutes)
 
 sequelize.sync().then(() => {
     console.log('DB has been started!');

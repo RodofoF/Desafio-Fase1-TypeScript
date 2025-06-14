@@ -1,9 +1,8 @@
 import { Router } from 'express'
-import { listarLivros, criarLivro } from '../controllers/livroController'
-
+import livroController from '../controllers/livroController'
 const router = Router()
 
-router.get('/listar', listarLivros)
-// router.post('/criar', criarLivro)
+router.get('/listar', livroController.listarLivros)
+router.post('/criar', livroController.criarLivro)
 
 export default router;
