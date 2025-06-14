@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../conn/db";
-import Editora from "./editora";
+import Editora from "./Editora";
 
 const Livro = sequelize.define('Livro', {
     titulo: {
@@ -34,10 +34,5 @@ Livro.belongsTo(Editora, {
     as: 'editora'
 });
 
-// Relacionamento que uma editora tem muitos livros
-Editora.hasMany(Livro, {
-    foreignKey: 'editoraId',
-    as: 'livros'
-});
 
 export default Livro;
