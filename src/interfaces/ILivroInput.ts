@@ -1,6 +1,7 @@
 export interface ILivroInput {
-    titulo: string,
-    autor: string,
-    ano: number,
-    editoraId: number
+    title: string,
+    author: string,
+    year: number,
+    ISBN: number,
+    publisherId: number
 }

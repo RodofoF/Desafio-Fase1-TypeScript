@@ -3,8 +3,8 @@ import sequelize from "./conn/db"
 import cors from "cors"
 import livrosRoutes from './routes/livros'
 import editorasRoutes from './routes/editoras'
-import Livro from './models/Livro'
-import Editora from './models/Editora'
+import Livro from './models/Book'
+import Editora from './models/Publisher'
 
 const app = express();
 app.use(cors());
@@ -20,6 +20,7 @@ app.get('/ping', (req: Request, res: Response) => {
 app.use('/api/livros', livrosRoutes)
 app.use('/api/editoras', editorasRoutes)
 
+//.sync({force: true})
 sequelize.sync().then(() => {
     console.log('DB has been started!');
     app.listen(3000, () => {

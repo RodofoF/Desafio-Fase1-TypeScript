@@ -1,3 +1,3 @@
 export interface IEditoraInput {
-    nome: string
+    name: string
 }

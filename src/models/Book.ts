@@ -2,33 +2,37 @@ import { DataTypes } from "sequelize";
 import sequelize from "../conn/db";
 
 
-const Livro = sequelize.define('Livro', {
-    titulo: {
+const Book = sequelize.define('Book', {
+    title: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    autor: {
+    author: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    ano: {
+    year: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    editoraId: {
+    ISBN: {
+        type: DataTypes.INTEGER,
+        allowNull:false
+    },
+    publisherId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'editoras',
+            model: 'publishers',
             key: 'id'
         }
     }
 },{
-    tableName: 'livros',
+    tableName: 'books',
     timestamps: false
 });
 
 
 
 
-export default Livro;
+export default Book;

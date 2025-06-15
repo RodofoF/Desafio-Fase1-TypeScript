@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { IEditoraInput } from "../interfaces/IEditoraInput";
-import Editora from "../models/Editora";
+import Editora from "../models/Publisher";
 
 async function getAllPublishers (req: Request, res: Response) {
     try {
@@ -22,8 +22,8 @@ async function getPublisherById(req:Request, res: Response) {
 } 
 async function postPublisher(req:Request, res: Response) {
     try {
-        const {nome}: IEditoraInput = req.body;
-        const newPublisher = await Editora.create({nome})
+        const {name}: IEditoraInput = req.body;
+        const newPublisher = await Editora.create({name})
         res.status(201).json(newPublisher)
     } catch (error) {
         console.error("There was a error to post a new publisher", error)
@@ -45,12 +45,12 @@ async function deletePublisherById(req:Request, res: Response) {
 }
 async function putPublisherById(req:Request, res: Response) {
     try {
-        const {nome}: IEditoraInput = req.body
+        const {name}: IEditoraInput = req.body
         const publisher = await Editora.findByPk(req.params.id)
         if (!publisher) {
             return res.status(404).json({message: "Publisher not found!"})
         }
-        await publisher.update({nome})
+        await publisher.update({name})
         res.status(200).json(publisher)
     } catch (error) {
             console.error('There were a error when you tryed update this publisher', error)
