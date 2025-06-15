@@ -51,16 +51,16 @@ O foco está em criar um CRUD completo (Create, Read, Update, Delete), que se co
    cd seu-repo
 
 2. Instale as dependências
-  ```bash
-  npm install
+   ```bash
+   npm install
 
 3. Crie o arquivo .env
-  ```bash
-  PORT=3000
-  DB_NAME=biblioteca
-  DB_USER=root
-  DB_PASS=
-  DB_HOST=localhost
+   ```bash
+   PORT=3000
+   DB_NAME=biblioteca
+   DB_USER=root
+   DB_PASS=
+   DB_HOST=localhost
 
 4. Inicie o servidor
   ```bash
