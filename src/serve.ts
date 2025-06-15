@@ -4,8 +4,7 @@ import cors from "cors"
 import livrosRoutes from './routes/livros'
 import editorasRoutes from './routes/editoras'
 import dotenv from 'dotenv'
-import Livro from './models/Book'
-import Editora from './models/Publisher'
+
 
 dotenv.config()
 

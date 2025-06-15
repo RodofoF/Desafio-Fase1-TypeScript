@@ -1,6 +1,6 @@
 # 📚 Sistema de Gerenciamento de Biblioteca
 
-Este projeto tem como objetivo desenvolver uma API utilizando TypeScript, com foco em operações CRUD para gerenciar livros e editoras. A API se conecta a um banco de dados relacional (MySQL), utilizando Sequelize como ORM.
+Este projeto é uma atividade da PÓS-TECH em FULLSTACK da primeira fase atividade de TypeScript. Tem como objetivo desenvolver uma API utilizando TypeScript, com foco em operações CRUD para gerenciar livros e editoras. A API se conecta a um banco de dados relacional (MySQL), utilizando Sequelize como ORM.
 
 ---
 
@@ -43,12 +43,29 @@ O foco está em criar um CRUD completo (Create, Read, Update, Delete), que se co
 
 ---
 
+## Pré-requisitos
+
+1. Ter o **XAMPP instalado** e o **MySQL iniciado**.
+2. Criar o banco de dados manualmente:
+
+   ### 💾 Criando o banco `biblioteca` via phpMyAdmin:
+
+   - Acesse `http://localhost/phpmyadmin`
+   - Clique em "Novo" e crie um banco com o nome:
+     ```sql
+     CREATE DATABASE biblioteca;
+     ```
+
+   > O Sequelize criará automaticamente as tabelas `books` e `publishers`.
+
+---
+
 ## Como rodar o projeto
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/seu-repo.git
-   cd seu-repo
+   git clone https://github.com/RodofoF/Desafio-Fase1-TypeScript.git
+   cd Desafio-Fase1-TypeScript
 
 2. Instale as dependências
    ```bash
@@ -63,8 +80,8 @@ O foco está em criar um CRUD completo (Create, Read, Update, Delete), que se co
    DB_HOST=localhost
 
 4. Inicie o servidor
-  ```bash
-  npm start
+   ```bash
+   npm start
 
 ---
 
@@ -72,18 +89,21 @@ O foco está em criar um CRUD completo (Create, Read, Update, Delete), que se co
 
 ### Livros
 - GET /livros/listar → Lista todos os livros
+- GET /livros/listar/:id → Lista um livro por ID
 - POST /livros/criar → Cadastra um novo livro
-- PUT /livros/:id → Atualiza um livro existente
-- DELETE /livros/:id → Deleta um livro
+- PUT /livros/editar/:id → Atualiza um livro existente por ID
+- DELETE /livros/apagar/:id → Deleta um livro por ID
 
 ### Editoras
-- GET /editoras → Lista todas as editoras
-- POST /editoras → Cadastra uma nova editora
-- PUT /editoras/:id → Atualiza uma editora
-- DELETE /editoras/:id → Deleta uma editora
+- GET /editoras/listar → Lista todas as editoras
+- GET /editoras/listar/:id → Lista uma editora por ID
+- POST /editoras/criar → Cadastra uma nova editora
+- PUT /editoras/editar/:id → Atualiza uma editorapor ID
+- DELETE /editoras/apagar/:id → Deleta uma editora por ID
 
 ---
 
 ## Roadmap
 - Listar todos os livros que contém em uma editora
+- Coloar o código inteiro em inglês, como mudar nomes de variáveis e endpoints
 - Desenvolver frontend
