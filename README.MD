@@ -106,4 +106,9 @@ O foco está em criar um CRUD completo (Create, Read, Update, Delete), que se co
 ## Roadmap
 - Listar todos os livros que contém em uma editora
 - Coloar o código inteiro em inglês, como mudar nomes de variáveis e endpoints
+- Migrar o DB para alguma plataforma em nuvem, para testes
 - Desenvolver frontend
+
+---
+## Dificuldades durante o projeto
+- O projeto está em TS, mas ele tem uma base JS, não sei se é possível adicionar mais elementos TS para melhorar o projeto.
