@@ -3,8 +3,13 @@ import sequelize from "./conn/db"
 import cors from "cors"
 import livrosRoutes from './routes/livros'
 import editorasRoutes from './routes/editoras'
+import dotenv from 'dotenv'
 import Livro from './models/Book'
 import Editora from './models/Publisher'
+
+dotenv.config()
+
+const port = process.env.PORT || 3000
 
 const app = express();
 app.use(cors());
@@ -24,7 +29,7 @@ app.use('/api/editoras', editorasRoutes)
 sequelize.sync().then(() => {
     console.log('DB has been started!');
     app.listen(3000, () => {
-        console.log("The server is running on http://127.0.0.1:3000") 
+        console.log(`The server is running on http://127.0.0.1:${port}`) 
     })
 }).catch(err => {
     console.error("There is an error to start the DB", err);
